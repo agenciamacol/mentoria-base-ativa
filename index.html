@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cresça com quem já é seu cliente | Bruno Rocha</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --preto: #0D0D0D;
+    --amarelo: #F5C200;
+    --amarelo-escuro: #D4A900;
+    --cinza-escuro: #2C2C2C;
+    --cinza-medio: #6B6B6B;
+    --cinza-claro: #F2F2F2;
+    --branco: #FFFFFF;
+    --texto-principal: #1A1A1A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--texto-principal);
+    background: var(--branco);
+    line-height: 1.7;
+    font-size: 16px;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--preto);
+    padding: 16px 24px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--amarelo);
+  }
+
+  .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--branco);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .logo span { color: var(--amarelo); }
+
+  /* SECTIONS */
+  section { padding: 64px 24px; }
+
+  .container { max-width: 720px; margin: 0 auto; }
+
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.25;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--preto);
+    color: var(--branco);
+    padding: 72px 24px 80px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 900;
+    color: var(--amarelo);
+    margin-bottom: 24px;
+    letter-spacing: -0.5px;
+  }
+
+  .hero p {
+    font-size: clamp(16px, 2.5vw, 19px);
+    color: #CCCCCC;
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.8;
+  }
+
+  /* DOR */
+  .dor { background: var(--cinza-claro); }
+
+  .dor h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: var(--preto);
+  }
+
+  .dor p { margin-bottom: 18px; color: #333; font-size: 17px; }
+
+  .destaque-dor {
+    background: var(--preto);
+    color: var(--branco);
+    border-left: 4px solid var(--amarelo);
+    padding: 20px 24px;
+    border-radius: 4px;
+    margin: 28px 0;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.8;
+  }
+
+  /* PROVA SOCIAL */
+  .prova-social {
+    background: var(--cinza-escuro);
+    color: var(--branco);
+    text-align: center;
+  }
+
+  .prova-social h2 {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 700;
+    color: var(--amarelo);
+    margin-bottom: 20px;
+  }
+
+  .depoimento-destaque {
+    background: rgba(245, 194, 0, 0.1);
+    border: 1px solid var(--amarelo);
+    border-radius: 8px;
+    padding: 24px;
+    font-size: 16px;
+    font-style: italic;
+    color: #E0E0E0;
+    margin-top: 24px;
+  }
+
+  .depoimento-destaque .autor {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--amarelo);
+    margin-top: 12px;
+    font-size: 14px;
+    display: block;
+  }
+
+  /* CTA */
+  .cta-section {
+    background: var(--amarelo);
+    text-align: center;
+    padding: 48px 24px;
+  }
+
+  .cta-section p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 600;
+    color: var(--preto);
+    margin-bottom: 24px;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--preto);
+    color: var(--amarelo);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(15px, 2.5vw, 18px);
+    padding: 18px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.35);
+  }
+
+  .btn-final {
+    display: inline-block;
+    background: var(--amarelo);
+    color: var(--preto);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: clamp(15px, 2.5vw, 18px);
+    padding: 20px 40px;
+    border-radius: 6px;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    box-shadow: 0 4px 16px rgba(245,194,0,0.4);
+    transition: transform 0.15s, box-shadow 0.15s;
+    cursor: pointer;
+  }
+
+  .btn-final:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(245,194,0,0.5);
+  }
+
+  /* METODO */
+  .metodo { background: var(--branco); }
+
+  .metodo h2 {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--preto);
+  }
+
+  .metodo .intro { color: #444; margin-bottom: 32px; font-size: 17px; }
+
+  .passo {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    margin-bottom: 28px;
+    padding: 24px;
+    background: var(--cinza-claro);
+    border-radius: 8px;
+    border-left: 4px solid var(--amarelo);
+  }
+
+  .passo-num {
+    background: var(--preto);
+    color: var(--amarelo);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .passo h3 {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--preto);
+  }
+
+  .passo p { font-size: 15px; color: #555; }
+
+  /* PARA QUEM */
+  .para-quem { background: var(--cinza-claro); }
+
+  .para-quem h2 {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: var(--preto);
+  }
+
+  .grid-duplo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media (max-width: 600px) { .grid-duplo { grid-template-columns: 1fr; } }
+
+  .card-quem {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 24px;
+  }
+
+  .card-quem.e { border-top: 4px solid var(--amarelo); }
+  .card-quem.nao { border-top: 4px solid #888; }
+
+  .card-quem h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--preto);
+  }
+
+  .card-quem ul { list-style: none; }
+
+  .card-quem ul li {
+    font-size: 15px;
+    color: #444;
+    padding: 8px 0;
+    border-bottom: 1px solid #EFEFEF;
+    line-height: 1.6;
+  }
+
+  .card-quem ul li:last-child { border-bottom: none; }
+
+  .card-quem.e ul li::before { content: "→ "; color: var(--amarelo); font-weight: 700; }
+  .card-quem.nao ul li::before { content: "× "; color: #999; font-weight: 700; }
+
+  /* ENTREGÁVEIS */
+  .entregaveis { background: var(--preto); color: var(--branco); }
+
+  .entregaveis h2 {
+    font-size: clamp(22px, 3.5vw, 30px);
+    font-weight: 800;
+    color: var(--amarelo);
+    margin-bottom: 32px;
+    text-align: center;
+  }
+
+  .entrega-card {
+    background: var(--cinza-escuro);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    border-left: 4px solid var(--amarelo);
+  }
+
+  .entrega-card h3 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--amarelo);
+    margin-bottom: 10px;
+  }
+
+  .entrega-card p { font-size: 15px; color: #C0C0C0; line-height: 1.7; }
+
+  /* BONUS */
+  .bonus { background: var(--cinza-claro); }
+
+  .bonus h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 8px;
+    color: var(--preto);
+  }
+
+  .bonus .sub { color: var(--cinza-medio); margin-bottom: 28px; font-size: 15px; }
+
+  .bonus-card {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 16px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .bonus-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .bonus-card h3 { font-size: 16px; font-weight: 700; color: var(--preto); margin-bottom: 6px; }
+  .bonus-card p { font-size: 14px; color: #555; }
+
+  /* STACK DE VALOR */
+  .stack { background: var(--preto); color: var(--branco); text-align: center; }
+
+  .stack h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    color: var(--amarelo);
+    margin-bottom: 24px;
+  }
+
+  .comparativo {
+    background: var(--cinza-escuro);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 28px;
+    text-align: left;
+  }
+
+  .comparativo .linha {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+    font-size: 15px;
+    color: #C0C0C0;
+  }
+
+  .comparativo .linha:last-child { border-bottom: none; }
+  .comparativo .linha .valor { color: var(--amarelo); font-weight: 600; white-space: nowrap; margin-left: 16px; }
+
+  .preco-destaque {
+    background: var(--amarelo);
+    border-radius: 8px;
+    padding: 32px;
+    margin-top: 16px;
+  }
+
+  .preco-destaque .label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--cinza-escuro);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .preco-destaque .valor-principal {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 900;
+    color: var(--preto);
+    line-height: 1.1;
+  }
+
+  .preco-destaque .parcelas {
+    font-size: 15px;
+    color: #444;
+    margin-top: 4px;
+  }
+
+  /* DEPOIMENTOS */
+  .depoimentos { background: var(--cinza-claro); }
+
+  .depoimentos h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: var(--preto);
+    text-align: center;
+  }
+
+  .depo-card {
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--amarelo);
+    position: relative;
+  }
+
+  .depo-placeholder {
+    background: #FFF9E0;
+    border: 2px dashed var(--amarelo);
+    border-radius: 4px;
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #8A6D00;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .depo-card p { font-size: 15px; color: #444; font-style: italic; line-height: 1.7; }
+  .depo-card .autor { margin-top: 12px; font-style: normal; font-weight: 600; font-size: 14px; color: var(--cinza-medio); }
+
+  /* SUPORTE */
+  .suporte { background: var(--branco); text-align: center; }
+
+  .suporte h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--preto);
+  }
+
+  .suporte p { font-size: 17px; color: #444; max-width: 580px; margin: 0 auto; }
+
+  /* GARANTIA */
+  .garantia { background: var(--cinza-claro); }
+
+  .garantia-box {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    background: var(--branco);
+    border-radius: 8px;
+    padding: 32px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border: 2px solid var(--preto);
+  }
+
+  .garantia-icone { font-size: 48px; flex-shrink: 0; }
+
+  .garantia-box h2 {
+    font-size: clamp(18px, 3vw, 24px);
+    font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--preto);
+  }
+
+  .garantia-box p { font-size: 16px; color: #444; line-height: 1.7; }
+
+  @media (max-width: 500px) {
+    .garantia-box { flex-direction: column; }
+    .garantia-icone { font-size: 36px; }
+  }
+
+  /* AUTORIDADE */
+  .autoridade { background: var(--preto); color: var(--branco); }
+
+  .autoridade h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    color: var(--amarelo);
+    margin-bottom: 24px;
+  }
+
+  .autoridade p { font-size: 17px; color: #C0C0C0; margin-bottom: 16px; line-height: 1.8; }
+
+  .autoridade .assinatura {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--amarelo);
+    margin-top: 24px;
+  }
+
+  /* FAQ */
+  .faq { background: var(--cinza-claro); }
+
+  .faq h2 {
+    font-size: clamp(20px, 3.5vw, 28px);
+    font-weight: 800;
+    margin-bottom: 28px;
+    color: var(--preto);
+    text-align: center;
+  }
+
+  details {
+    background: var(--branco);
+    border-radius: 8px;
+    margin-bottom: 12px;
+    border-left: 4px solid var(--amarelo);
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  }
+
+  summary {
+    padding: 18px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    color: var(--preto);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  summary::-webkit-details-marker { display: none; }
+
+  summary::after {
+    content: "+";
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--amarelo);
+    flex-shrink: 0;
+    margin-left: 12px;
+  }
+
+  details[open] summary::after { content: "−"; }
+
+  details p {
+    padding: 0 20px 18px;
+    font-size: 15px;
+    color: #555;
+    line-height: 1.7;
+  }
+
+  /* OFERTA FINAL */
+  .oferta-final { background: var(--preto); color: var(--branco); text-align: center; }
+
+  .oferta-final h2 {
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 900;
+    color: var(--amarelo);
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .oferta-final p { font-size: 17px; color: #C0C0C0; margin-bottom: 16px; max-width: 580px; margin-left: auto; margin-right: auto; }
+
+  .oferta-box {
+    background: var(--cinza-escuro);
+    border: 2px solid var(--amarelo);
+    border-radius: 12px;
+    padding: 32px 24px;
+    margin: 32px 0;
+    text-align: left;
+  }
+
+  .oferta-box .incluso { margin-bottom: 20px; }
+  .oferta-box .incluso h3 { font-size: 14px; font-weight: 700; color: var(--amarelo); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .oferta-box .incluso ul { list-style: none; }
+  .oferta-box .incluso li { font-size: 15px; color: #C0C0C0; padding: 6px 0; }
+  .oferta-box .incluso li::before { content: "✓ "; color: var(--amarelo); font-weight: 700; }
+
+  .preco-final-box { border-top: 1px solid #444; padding-top: 20px; margin-top: 4px; }
+  .preco-final-box .turma { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--amarelo); margin-bottom: 4px; }
+  .preco-final-box .valor { font-family: 'Montserrat', sans-serif; font-size: clamp(26px, 5vw, 38px); font-weight: 900; color: var(--branco); }
+  .preco-final-box .detalhe { font-size: 14px; color: #888; margin-top: 4px; }
+
+  .aviso-vagas {
+    font-size: 14px;
+    color: #888;
+    margin-top: 20px;
+    font-style: italic;
+  }
+
+  /* WHATSAPP FLUTUANTE */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 999;
+  }
+
+  .whatsapp-float a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    background: #25D366;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    text-decoration: none;
+    transition: transform 0.15s;
+  }
+
+  .whatsapp-float a:hover { transform: scale(1.08); }
+
+  .whatsapp-float svg { width: 28px; height: 28px; fill: white; }
+
+  /* FOOTER */
+  footer {
+    background: var(--preto);
+    border-top: 1px solid #222;
+    text-align: center;
+    padding: 24px;
+    font-size: 13px;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="logo">Bruno <span>Rocha</span></div>
+</header>
+
+<!-- BLOCO 1: HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>O dinheiro que falta no caixa já passou pelo seu sistema antes</h1>
+    <p>Você já pagou para conquistar cada cliente que tem. A maioria comprou uma vez e sumiu, não porque o produto foi ruim, mas porque ninguém foi atrás. Isso tem nome e tem solução.</p>
+  </div>
+</section>
+
+<!-- BLOCO 2: DOR -->
+<section class="dor">
+  <div class="container">
+    <h2>Você não está crescendo. Você está recomeçando todo mês.</h2>
+    <p>Pense num mês típico do seu negócio. Você investe em tráfego, em indicação, talvez em agência. Alguns meses são bons. Outros são fracos, e você não consegue explicar exatamente o motivo. O produto não mudou. O mercado não desapareceu. Mas o caixa oscila, e cada mês começa quase do zero.</p>
+    <p>Enquanto isso, você tem uma base de clientes que já pagou para construir: pessoas que confiaram em você, compraram, ficaram satisfeitas e nunca mais receberam uma comunicação relevante. Estão lá, no sistema, no WhatsApp, em alguma planilha que ninguém abre.</p>
+
+    <div class="destaque-dor">
+      O Ricardo, dono de uma clínica de estética em São Paulo, tinha 1.200 clientes cadastrados. Faturava R$ 80 mil por mês com tráfego pago e indicação, mas não sabia dizer quantos tinham comprado nos últimos 90 dias. Quando parou para olhar, descobriu que 70% da base estava inativa há mais de seis meses.
+    </div>
+
+    <p>Essa é a conta que a maioria dos empresários evita fazer. Não porque não quer crescer, mas porque crescer sempre pareceu sinônimo de investir mais. Mais tráfego, mais campanha, mais agência. Mais custo.</p>
+    <p>O que ninguém parou para mostrar é que o maior ativo do seu negócio já está cadastrado no seu sistema, e ele está sendo ignorado todo mês.</p>
+  </div>
+</section>
+
+<!-- BLOCO 3: PROVA SOCIAL -->
+<section class="prova-social">
+  <div class="container">
+    <h2>Empresários que pararam de começar do zero</h2>
+    <p style="color:#AAAAAA; font-size:16px;">Mais de <strong style="color:var(--amarelo)">[X] empresários</strong> já estruturaram sua estratégia de retenção com esse método.</p>
+
+    <div class="depoimento-destaque">
+      "Em 45 dias eu reativei 38 clientes que estavam sem comprar há mais de 4 meses. Sem novo investimento em tráfego."
+      <span class="autor">[substituir por depoimento real] — Nome, segmento, cidade</span>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 4: CTA INTERMEDIÁRIO -->
+<section class="cta-section">
+  <div class="container">
+    <p>Se você tem clientes na base e quer parar de ignorar o faturamento que já é seu:</p>
+    <a href="#oferta" class="btn-primary">Sim, quero crescer com quem já é meu cliente</a>
+  </div>
+</section>
+
+<!-- BLOCO 5: MÉTODO -->
+<section class="metodo">
+  <div class="container">
+    <h2>Por que a maioria das tentativas de CRM falha</h2>
+    <p class="intro">Não é a ferramenta. É a ordem.<br>A maioria começa pela tecnologia: compra o sistema, tenta configurar, o time não usa, os dados ficam bagunçados, o empresário conclui que CRM não é para o negócio dele e abandona. Tecnologia sem processo é só custo.<br><br>O método começa pelo processo. Só depois a ferramenta entra, e quando entra, ela já tem para onde ir.</p>
+
+    <div class="passo">
+      <div class="passo-num">1</div>
+      <div>
+        <h3>Diagnóstico da base</h3>
+        <p>Você vai saber, pela primeira vez, quem são seus clientes ativos, quem está inativo, qual é o ticket médio real e qual é o ciclo de compra do seu negócio. Esse passo sozinho já gera informações que nenhuma agência entregou.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-num">2</div>
+      <div>
+        <h3>Estrutura de CRM</h3>
+        <p>Montamos o processo antes de abrir qualquer ferramenta. Régua de relacionamento, segmentação da base, fluxos de reativação e de fidelização. Você entende o que fazer, por quê e em qual ordem.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-num">3</div>
+      <div>
+        <h3>Ativação da ferramenta</h3>
+        <p>Com o processo desenhado, a ferramenta entra para automatizar o que já foi estruturado. Cada campo tem função. Cada automação tem objetivo.</p>
+      </div>
+    </div>
+
+    <div class="passo">
+      <div class="passo-num">4</div>
+      <div>
+        <h3>Estratégia de crescimento contínuo</h3>
+        <p>Com a base ativa e o CRM rodando, implementamos estratégias de upsell, cross-sell e recorrência. O faturamento começa a crescer sem que o orçamento de marketing precise crescer junto.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 6: PARA QUEM É -->
+<section class="para-quem">
+  <div class="container">
+    <h2>Essa mentoria é para você?</h2>
+    <div class="grid-duplo">
+      <div class="card-quem e">
+        <h3>Para quem é</h3>
+        <ul>
+          <li>Você tem clientes que compraram e não sabe quando vão comprar de novo</li>
+          <li>Já tentou CRM, não funcionou, suspeita que o problema foi falta de método</li>
+          <li>Paga agência e sente que depende demais de terceiros para entender seu negócio</li>
+          <li>Tem meses bons e meses ruins sem identificar o que muda entre um e outro</li>
+          <li>Quer capacitar alguém do time para tocar CRM sem contratar consultoria externa</li>
+        </ul>
+      </div>
+      <div class="card-quem nao">
+        <h3>Não é para quem</h3>
+        <ul>
+          <li>Está abrindo o negócio agora e ainda não tem clientes</li>
+          <li>Quer que alguém faça tudo no lugar, sem nenhum envolvimento</li>
+          <li>Busca resultado sem participar do processo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 7: ENTREGÁVEIS -->
+<section class="entregaveis">
+  <div class="container">
+    <h2>O que você recebe durante os 6 meses</h2>
+
+    <div class="entrega-card">
+      <h3>Módulos gravados (acesso imediato, sempre atualizados)</h3>
+      <p>Diagnóstico e organização da base de clientes. Estrutura de CRM do zero. Réguas de reativação e fidelização. Estratégias de upsell e cross-sell. Growth marketing aplicado à base existente. Como capacitar alguém do seu time para tocar isso sem depender de agência.</p>
+    </div>
+
+    <div class="entrega-card">
+      <h3>CRM incluso por 6 meses</h3>
+      <p>A ferramenta que usamos na mentoria fica disponível para você durante todo o período, já configurada conforme o método. Após os 6 meses, você escolhe: renova a mentoria e mantém acesso a tudo, ou continua só com a ferramenta no plano que faz sentido para o tamanho da sua operação (R$ 97, R$ 297 ou R$ 497 por mês).</p>
+    </div>
+
+    <div class="entrega-card">
+      <h3>2 encontros ao vivo por mês</h3>
+      <p>Um encontro de conteúdo estratégico atualizado. Um encontro de aceleração para tirar dúvidas da implementação e ajustar o que não está funcionando. Acesso direto, sem intermediário.</p>
+    </div>
+
+    <div class="entrega-card">
+      <h3>Acesso ao círculo de influência</h3>
+      <p>Além do contato direto, você entra no grupo de empresários e profissionais da mentoria. Conexões reais, troca de experiência, oportunidade de parceria.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 8: BÔNUS -->
+<section class="bonus">
+  <div class="container">
+    <h2>Bônus inclusos</h2>
+    <p class="sub">Disponíveis assim que você entra</p>
+
+    <div class="bonus-card">
+      <div class="bonus-icon">📋</div>
+      <div>
+        <h3>Kit de templates prontos</h3>
+        <p>Modelos de mensagem de reativação, régua de relacionamento por segmento e scripts de abordagem para WhatsApp. Você adapta ao tom do seu negócio e começa a usar na primeira semana.</p>
+      </div>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-icon">📊</div>
+      <div>
+        <h3>Calculadora de LTV</h3>
+        <p>Planilha que mostra, com os dados do seu próprio negócio, quanto cada cliente vale ao longo do tempo e onde você está perdendo dinheiro sem perceber.</p>
+      </div>
+    </div>
+
+    <div class="bonus-card">
+      <div class="bonus-icon">✅</div>
+      <div>
+        <h3>Checklist de diagnóstico da base</h3>
+        <p>30 perguntas para mapear o estado atual da sua base antes de qualquer ação. Você sai do diagnóstico sabendo exatamente o que fazer primeiro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 9: STACK DE VALOR -->
+<section class="stack">
+  <div class="container">
+    <h2>O que custa montar isso separado</h2>
+
+    <div class="comparativo">
+      <div class="linha">
+        <span>Consultoria de CRM (diagnóstico + estrutura)</span>
+        <span class="valor">R$ 5.000 a R$ 15.000</span>
+      </div>
+      <div class="linha">
+        <span>Mentoria individual de growth marketing (por mês)</span>
+        <span class="valor">R$ 3.000 a R$ 10.000</span>
+      </div>
+      <div class="linha">
+        <span>Ferramenta de CRM (contratada direta, por mês)</span>
+        <span class="valor">R$ 97 a R$ 497</span>
+      </div>
+      <div class="linha">
+        <span>6 meses de acompanhamento + comunidade</span>
+        <span class="valor">Sem equivalente</span>
+      </div>
+    </div>
+
+    <p style="color:#AAAAAA; font-size:15px; margin-bottom:20px;">Somando: acima de R$ 20.000 para ter o equivalente, sem os 6 meses de acompanhamento e sem a comunidade.</p>
+
+    <div class="preco-destaque">
+      <div class="label">Turma Founders</div>
+      <div class="valor-principal">R$ 6.000</div>
+      <div class="parcelas">ou 6 vezes de R$ 1.000</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 10: DEPOIMENTOS -->
+<section class="depoimentos">
+  <div class="container">
+    <h2>Quem já passou por aqui</h2>
+
+    <div class="depo-card">
+      <span class="depo-placeholder">Substituir por depoimento real</span>
+      <p>"Eu tinha CRM instalado há dois anos e nunca tinha gerado uma venda com ele. Em três semanas de mentoria eu entendi o que estava errado e corrigi. Na quarta semana rodei minha primeira campanha de reativação."</p>
+      <div class="autor">Nome, segmento, cidade</div>
+    </div>
+
+    <div class="depo-card">
+      <span class="depo-placeholder">Substituir por depoimento real</span>
+      <p>"O que mais me surpreendeu foi que eu não precisei aumentar o orçamento de marketing para crescer o faturamento. O dinheiro já estava na minha base."</p>
+      <div class="autor">Nome, segmento, cidade</div>
+    </div>
+
+    <div class="depo-card">
+      <span class="depo-placeholder">Substituir por depoimento real</span>
+      <p>"Entrei querendo aprender para repassar para o meu time. Saí sabendo cobrar resultado de qualquer profissional de marketing que eu contratar."</p>
+      <div class="autor">Nome, segmento, cidade</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 11: SUPORTE -->
+<section class="suporte">
+  <div class="container">
+    <h2>Você não implementa sozinho</h2>
+    <p>Nas semanas entre os encontros ao vivo, você tem acesso ao grupo da mentoria para tirar dúvidas pontuais, compartilhar resultados e receber orientação. As dúvidas que surgem no meio da execução também têm resposta, não só no dia do encontro.</p>
+  </div>
+</section>
+
+<!-- BLOCO 12: GARANTIA -->
+<section class="garantia">
+  <div class="container">
+    <div class="garantia-box">
+      <div class="garantia-icone">🛡️</div>
+      <div>
+        <h2>7 dias de garantia total</h2>
+        <p>Se você entrar, assistir às primeiras aulas, participar do primeiro encontro e entender que não é o que precisava, devolvo 100% do valor investido. Sem burocracia, sem perguntas. Não porque o método tem falha. Porque se você chegou até aqui com dúvida real, o risco de testar precisa ser zero.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOCO 13: AUTORIDADE -->
+<section class="autoridade">
+  <div class="container">
+    <h2>Por que esse método existe</h2>
+    <p>Passei anos nos bastidores de estratégias de crescimento para negócios digitais: CRM, retenção, funis de reativação, campanhas de base. Trabalhei com empresas de diferentes portes, acompanhei resultados que nunca viraram depoimento público porque estavam dentro de operações que preferem o anonimato.</p>
+    <p>O que ficou de tudo isso foi o método. O processo que funciona independente do tamanho do negócio ou do segmento, porque parte sempre do mesmo lugar: a base de clientes que o empresário já construiu e ainda não colocou para trabalhar.</p>
+    <p>Essa mentoria é a primeira vez que esse método sai dos bastidores.</p>
+    <div class="assinatura">Bruno Rocha</div>
+  </div>
+</section>
+
+<!-- BLOCO 14: FAQ -->
+<section class="faq">
+  <div class="container">
+    <h2>Perguntas frequentes</h2>
+
+    <details>
+      <summary>Já tentei CRM antes e não funcionou. Por que seria diferente?</summary>
+      <p>Porque o problema nunca foi a ferramenta. Foi a ordem. Quando a tecnologia vem antes do processo, ela não tem para onde ir. Aqui o processo vem primeiro. A ferramenta entra depois, já com destino.</p>
+    </details>
+
+    <details>
+      <summary>Meu negócio é muito específico. Não sei se funciona para mim.</summary>
+      <p>Todo negócio com cliente recorrente tem base para trabalhar. O que muda é o canal e a régua, não o princípio. Quanto mais específico o seu segmento, menor a concorrência em estratégia de retenção. É vantagem, não obstáculo.</p>
+    </details>
+
+    <details>
+      <summary>Vou contratar alguém para fazer isso por mim.</summary>
+      <p>Você pode. Mas contratar sem entender o processo cria dependência permanente. Sem clareza do que pedir, o contratado define a agenda e entrega o mínimo. Quem aprende primeiro contrata melhor e para de depender de quem sabe mais sobre o próprio negócio do que o próprio dono.</p>
+    </details>
+
+    <details>
+      <summary>Não tenho tempo para mais um curso.</summary>
+      <p>A mentoria não é um curso para assistir do começo ao fim antes de agir. Você implementa enquanto aprende. Os módulos são curtos e objetivos. Os encontros ao vivo são focados em resultado, não em teoria.</p>
+    </details>
+
+    <details>
+      <summary>R$ 6.000 é muito para pagar agora.</summary>
+      <p>Um empresário com 500 clientes na base que reativa 5% deles com uma campanha simples, com ticket médio de R$ 300, já gera R$ 7.500 na primeira ação. O investimento se paga antes do segundo mês. A pergunta real não é se dá para pagar, é quanto está custando deixar a base parada mais um mês.</p>
+    </details>
+  </div>
+</section>
+
+<!-- BLOCO 15: OFERTA FINAL -->
+<section class="oferta-final" id="oferta">
+  <div class="container">
+    <h2>Dois caminhos estão na mesa</h2>
+    <p>Continuar o próximo mês como os anteriores: investindo em aquisição, torcendo para o tráfego funcionar, começando do zero enquanto a base de clientes que você já pagou para conquistar fica parada no sistema.</p>
+    <p>Ou estruturar, nos próximos 6 meses, um processo de crescimento que parte de onde você já chegou.</p>
+
+    <div class="oferta-box">
+      <div class="incluso">
+        <h3>Incluso na turma Founders</h3>
+        <ul>
+          <li>CRM incluso por 6 meses</li>
+          <li>Módulos gravados com acesso imediato, sempre atualizados</li>
+          <li>2 encontros ao vivo por mês (estratégia + aceleração)</li>
+          <li>Acesso ao círculo de influência</li>
+          <li>Kit de templates prontos</li>
+          <li>Calculadora de LTV</li>
+          <li>Checklist de diagnóstico da base</li>
+          <li>7 dias de garantia total</li>
+        </ul>
+      </div>
+      <div class="preco-final-box">
+        <div class="turma">Turma Founders</div>
+        <div class="valor">R$ 6.000</div>
+        <div class="detalhe">ou 6 vezes de R$ 1.000</div>
+      </div>
+    </div>
+
+    <a href="#" class="btn-final">Sim, quero crescer com quem já é meu cliente</a>
+
+    <p class="aviso-vagas">Após as primeiras 20 vagas preenchidas, o valor sobe. Não há prazo artificial. A mudança acontece quando o número é atingido.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>Bruno Rocha &copy; 2026. Todos os direitos reservados.</p>
+</footer>
+
+<!-- WHATSAPP FLUTUANTE -->
+<div class="whatsapp-float">
+  <a href="https://wa.me/55SEU_NUMERO" target="_blank" rel="noopener" title="Fale no WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+  </a>
+</div>
+
+</body>
+</html>
